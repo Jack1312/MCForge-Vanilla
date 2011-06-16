@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 //using MySql.Data.MySqlClient;
 //using MySql.Data.Types;
+using MCForge.Levels;
 
 namespace MCForge
 {
@@ -83,7 +84,7 @@ namespace MCForge
                 {
                     for (int i = 0; i < p.level.ZoneList.Count; i++)
                     {
-                        Level.Zone Zn = p.level.ZoneList[i];
+                        Zone Zn = p.level.ZoneList[i];
                         MySQL.executeQuery("DELETE FROM `Zone" + p.level.name + "` WHERE Owner='" + Zn.Owner + "' AND SmallX='" + Zn.smallX + "' AND SMALLY='" + Zn.smallY + "' AND SMALLZ='" + Zn.smallZ + "' AND BIGX='" + Zn.bigX + "' AND BIGY='" + Zn.bigY + "' AND BIGZ='" + Zn.bigZ + "'");
 
                         Player.SendMessage(p, "Zone deleted for &b" + Zn.Owner);
@@ -148,7 +149,7 @@ namespace MCForge
             p.SendBlockchange(x, y, z, b);
             CatchPos cpos = (CatchPos)p.blockchangeObject;
 
-            Level.Zone Zn;
+            Zone Zn;
 
             Zn.smallX = Math.Min(cpos.x, x);
             Zn.smallY = Math.Min(cpos.y, y);

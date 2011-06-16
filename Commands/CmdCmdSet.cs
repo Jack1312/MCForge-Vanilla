@@ -45,7 +45,7 @@ namespace MCForge
             if (newPerm == LevelPermission.Null) { Player.SendMessage(p, "Could not find rank specified"); return; }
             if (p != null && newPerm > p.group.Permission) { Player.SendMessage(p, "Cannot set to a rank higher than yourself."); return; }
 
-            GrpCommands.rankAllowance newCmd = GrpCommands.allowedCommands.Find(rA => rA.commandName == foundCmd.name);
+            GrpCommands.RankAllowance newCmd = GrpCommands.allowedCommands.Find(rA => rA.commandName == foundCmd.name);
             newCmd.lowestRank = newPerm;
             GrpCommands.allowedCommands[GrpCommands.allowedCommands.FindIndex(rA => rA.commandName == foundCmd.name)] = newCmd;
 

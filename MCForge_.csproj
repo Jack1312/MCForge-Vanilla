@@ -158,6 +158,12 @@
     <Compile Include="Commands\CmdXJail.cs" />
     <Compile Include="CountdownGame.cs" />
     <Compile Include="CTFGame.cs" />
+    <Compile Include="Levels\Check.cs" />
+    <Compile Include="Levels\LevelPermission.cs" />
+    <Compile Include="Levels\Update.cs" />
+    <Compile Include="Levels\Zone.cs" />
+    <Compile Include="Player\GrpCommands.cs" />
+    <Compile Include="Player\RankAllowance.cs" />
     <Compile Include="Util\ExtrasCollection.cs" />
     <Compile Include="FindReference.cs" />
     <Compile Include="Color.cs" />

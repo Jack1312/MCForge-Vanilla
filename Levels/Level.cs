@@ -23,6 +23,7 @@ using System.Data;
 using System.Threading;
 //using MySql.Data.MySqlClient;
 //using MySql.Data.Types;
+using MCForge.Levels;
 
 ///WARNING! DO NOT CHANGE THE WAY THE LEVEL IS SAVED/LOADED!
 ///You MUST make it able to save and load as a new version other wise you will make old levels incompatible!
@@ -30,18 +31,6 @@ using System.Threading;
 
 namespace MCForge
 {
-    public enum LevelPermission : int
-    {
-        Banned = -20,
-        Guest = 0,
-        Builder = 30,
-        AdvBuilder = 50,
-        Operator = 80,
-        Admin = 100,
-        Nobody = 120,
-        Null = 150
-    }
-
     public class Level : IDisposable
     {
         public int id;
@@ -102,7 +91,6 @@ namespace MCForge
         public LevelPermission permissionbuild = LevelPermission.Builder;// What ranks can go to this map (excludes banned)
 
         public byte[] blocks;
-        public struct Zone { public ushort smallX, smallY, smallZ, bigX, bigY, bigZ; public string Owner; }
         public List<Zone> ZoneList;
 
         List<Check> ListCheck = new List<Check>();  //A list of blocks that need to be updated
@@ -3584,31 +3572,5 @@ namespace MCForge
             // This doesn't do a whole let right now
             Extras.Clear();
         }
-    }
-}
-//-------------------------------------------------------------------------------------------------------------------------------------------------------
-public class Check
-{
-    public int b;
-    public byte time;
-    public string extraInfo = "";
-    public Check(int b, string extraInfo = "")
-    {
-        this.b = b;
-        time = 0;
-        this.extraInfo = extraInfo;
-    }
-}
-//-------------------------------------------------------------------------------------------------------------------------------------------------------
-public class Update
-{
-    public int b;
-    public byte type;
-    public string extraInfo = "";
-    public Update(int b, byte type, string extraInfo = "")
-    {
-        this.b = b;
-        this.type = type;
-        this.extraInfo = extraInfo;
     }
 }

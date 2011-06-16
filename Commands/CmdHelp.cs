@@ -181,7 +181,7 @@ namespace MCForge
 
         private string getColor(string commName)
         {
-            foreach (GrpCommands.rankAllowance aV in GrpCommands.allowedCommands)
+            foreach (GrpCommands.RankAllowance aV in GrpCommands.allowedCommands)
             {
                 if (aV.commandName == commName)
                 {

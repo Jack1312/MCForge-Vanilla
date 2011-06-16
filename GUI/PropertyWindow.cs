@@ -92,7 +92,7 @@ namespace MCForge.Gui
         }
 
         List<Group> storedRanks = new List<Group>();
-        List<GrpCommands.rankAllowance> storedCommands = new List<GrpCommands.rankAllowance>();
+        List<RankAllowance> storedCommands = new List<RankAllowance>();
         List<Block.Blocks> storedBlocks = new List<Block.Blocks>();
 
         public void LoadRanks()
@@ -120,7 +120,7 @@ namespace MCForge.Gui
         {
             listCommands.Items.Clear();
             storedCommands.Clear();
-            foreach (GrpCommands.rankAllowance aV in GrpCommands.allowedCommands)
+            foreach (RankAllowance aV in GrpCommands.allowedCommands)
             {
                 storedCommands.Add(aV);
                 listCommands.Items.Add(aV.commandName);
@@ -789,7 +789,7 @@ namespace MCForge.Gui
         private void listCommands_SelectedIndexChanged(object sender, EventArgs e)
         {
             Command cmd = Command.all.Find(listCommands.SelectedItem.ToString());
-            GrpCommands.rankAllowance allowVar = storedCommands.Find(aV => aV.commandName == cmd.name);
+            RankAllowance allowVar = storedCommands.Find(aV => aV.commandName == cmd.name);
 
             if (Group.findPerm(allowVar.lowestRank) == null) allowVar.lowestRank = cmd.defaultRank;
             txtCmdLowest.Text = (int)allowVar.lowestRank + "";

@@ -19,6 +19,7 @@ using System;
 using System.Collections.Generic;
 //using MySql.Data.MySqlClient;
 //using MySql.Data.Types;
+using MCForge.Levels;
 
 namespace MCForge
 {
@@ -55,7 +56,7 @@ namespace MCForge
                     Player.SendMessage(p, "Zones (" + currentNum + " to " + (pageNum - 1) + "):");
                     for (int i = currentNum; i < pageNum; i++)
                     {
-                        Level.Zone zone = p.level.ZoneList[i];
+                        Zone zone = p.level.ZoneList[i];
                         Player.SendMessage(p, "&c" + i + " &b(" +
                             zone.smallX + "-" + zone.bigX + ", " +
                             zone.smallY + "-" + zone.bigY + ", " +
@@ -67,7 +68,7 @@ namespace MCForge
                 {
                     for (int i = 0; i < p.level.ZoneList.Count; i++)
                     {
-                        Level.Zone zone = p.level.ZoneList[i];
+                        Zone zone = p.level.ZoneList[i];
                         Player.SendMessage(p, "&c" + i + " &b(" +
                             zone.smallX + "-" + zone.bigX + ", " +
                             zone.smallY + "-" + zone.bigY + ", " +
@@ -92,7 +93,7 @@ namespace MCForge
                     return;
                 }
 
-                Level.Zone zone = p.level.ZoneList[zoneID];
+                Zone zone = p.level.ZoneList[zoneID];
                 unchecked { p.SendPos((byte)-1, (ushort)(zone.bigX * 32 + 16), (ushort)(zone.bigY * 32 + 32), (ushort)(zone.bigZ * 32 + 16), p.rot[0], p.rot[1]); }
 
                 Player.SendMessage(p, "Teleported to zone &c" + zoneID + " &b(" +
