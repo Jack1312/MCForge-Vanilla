@@ -1,4 +1,4 @@
-﻿/*
+/*
  * Written By Jack1312
 
 	Copyright 2010 MCSharp team (Modified for use with MCZall/MCLawl/MCForge)
@@ -54,11 +54,14 @@ namespace MCForge
             }
             var agreed = File.ReadAllText("ranks/agreed.txt");
             var checklogs = File.ReadAllText("logs/" + DateTime.Now.ToString("yyyy") + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd") + ".txt");
-            if (!checklogs.Contains(p.name.ToLower() + " used /rules"))
-            {
-                Player.SendMessage(p, "&9You must read /rules before agreeing!");
-                return;
-            }
+			if (File.Exists("logs/" + DateTime.Now.ToString("yyyy") + "-" + DateTime.Now.ToString("MM") + "-" + DateTime.Now.ToString("dd") + ".txt")
+			{
+				if (!checklogs.Contains(p.name.ToLower() + " used /rules"))
+				{
+					Player.SendMessage(p, "&9You must read /rules before agreeing!");
+					return;
+				}
+			}
             if (agreed.Contains(p.name.ToLower()))
             {
                 Player.SendMessage(p, "You have already agreed to the rules!");
@@ -66,6 +69,9 @@ namespace MCForge
             }
             p.jailed = false;
             Player.SendMessage(p, "Thankyou, for agreeing to follow the rules. You may now build and use commands!");
+			p.ignorePermissions = true;
+			Command.all.Find("blockset").Use(p, "air p.group.name);
+			p.ignorePermissions = true;
             string playerspath = "ranks/agreed.txt";
             if (File.Exists(playerspath))
             {
