@@ -34,7 +34,7 @@ namespace MCForge
             Player.SendMessage(p, "/explode - Satisfying all your exploding needs :)");
             Player.SendMessage(p, "/explode me - Explodes at your location");
             Player.SendMessage(p, "/explode [Player] - Explode the specified player");
-            Player.SendMessage(p, "/explode [X] [Y] [Z] - Explode at the specified co-ordinates");
+            Player.SendMessage(p, "/explode [X] [Y] [Z] - Explode at the specified co-ordinates - COW");
 
         }
         public override void Use(Player p, string message)
