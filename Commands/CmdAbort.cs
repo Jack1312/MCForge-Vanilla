@@ -51,7 +51,7 @@ namespace MCForge
         }
         public override void Help(Player p)
         {
-            Player.SendMessage(p, "/abort - Cancels an action.");
+            Player.SendMessage(p, "/abort - Cancels an action. Burp*");
         }
     }
 }
